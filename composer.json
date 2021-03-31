@@ -1,0 +1,26 @@
+{
+    "name": "lackone/laravel-phpsocket-io",
+    "description": "phpsocket.io for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lackone",
+            "email": "lackone@126.com"
+        }
+    ],
+    "require": {
+        "workerman/phpsocket.io": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Lackone\\LaravelPhpsocketIo\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Lackone\\LaravelPhpsocketIo\\Providers\\PhpSocketIOServiceProvider"
+            ]
+        }
+    }
+}
