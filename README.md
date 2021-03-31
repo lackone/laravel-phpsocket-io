@@ -1,28 +1,46 @@
-<h1 align="center"> laravel-phpsocket-io </h1>
+# laravel-phpsocket-io
+为了在laravel中方便的使用phpsocket.io，于是基于phpsocket.io写了一个扩展。
 
-<p align="center"> phpsocket.io for laravel.</p>
+## 安装
 
-
-## Installing
-
-```shell
-$ composer require lackone/laravel-phpsocket-io -vvv
+```
+$ composer require lackone/laravel-phpsocket-io
 ```
 
-## Usage
+## 配置
+1、在 config/app.php 注册 ServiceProvider (Laravel5.5+无需手动注册)
 
-TODO
+```
+'providers' => [
+    // ...
+    Lackone\LaravelPhpsocketIo\Providers\PhpSocketIOServiceProvider::class,
+];
+```
 
-## Contributing
+2、创建配置文件
 
-You can contribute in one of three ways:
+```
+php artisan vendor:publish --provider="Lackone\LaravelPhpsocketIo\Providers\PhpSocketIOServiceProvider"
+```
 
-1. File bug reports using the [issue tracker](https://github.com/lackone/laravel-phpsocket-io/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/lackone/laravel-phpsocket-io/issues).
-3. Contribute new features or update the wiki.
+3、修改配置文件
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+根据需要修改 config/ps.php 中的配置即可 。
 
-## License
+## 使用
+创建一个用于处理消息的文件，比如 msg.php ，存放目录随意。
 
-MIT
+然后继承 Lackone\LaravelPhpsocketIo\Service\DefaultMsg 类。
+
+DefaultMsg 类中默认有几个方法，当然你也可以覆写父类方法自已实现。
+```
+class Msg extends DefaultMsg
+{
+    //方法名就是 $socket->on(‘方法名’)
+    public function test() 
+    {
+        //消息处理
+    }
+}
+```
+然后在 config/ps.php 中把你自已的写类配置到 message_handler 中。
