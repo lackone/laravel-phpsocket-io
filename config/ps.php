@@ -13,7 +13,7 @@ return [
         'log_file' => storage_path('logs/log.log'),
 
         //SocketIO的端口
-        'socket_io_port' => 6000,
+        'socket_io_port' => 7000,
         'socket_io_handler' => \Lackone\LaravelPhpsocketIo\Service\DefaultSocketIO::class,
         'socket_io_context' => [
             //SocketIO限制连接域名，多个域名用空格
@@ -25,7 +25,7 @@ return [
             //],
         ],
         //默认的worker处理类
-        'worker_url' => 'http://0.0.0.0:6001',
+        'worker_url' => 'http://0.0.0.0:7001',
         'worker_handler' => \Lackone\LaravelPhpsocketIo\Service\DefaultWorker::class,
         'worker_context' => [
             //'ssl' => [

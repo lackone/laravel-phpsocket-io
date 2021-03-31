@@ -21,7 +21,7 @@ class DefaultSocketIO
      */
     public function start()
     {
-        $this->io = new SocketIO($this->config('socket_io_port', 6000), $this->config('socket_io_context', []));
+        $this->io = new SocketIO($this->config('socket_io_port', 7000), $this->config('socket_io_context', []));
 
         $this->io->on('workerStart', [$this, 'onWorkerStart']);
         $this->io->on('workerStop', [$this, 'onWorkerStop']);
@@ -43,7 +43,7 @@ class DefaultSocketIO
      */
     public function onWorkerStart()
     {
-        $work_url = $this->config('worker_url', 'http://0.0.0.0:6001');
+        $work_url = $this->config('worker_url', 'http://0.0.0.0:7001');
 
         if ($work_url) {
             $work = new Worker($work_url, $this->config('worker_context', []));
