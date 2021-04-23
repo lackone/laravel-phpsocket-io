@@ -11,6 +11,7 @@ return [
     'default' => [
         'pid_file' => storage_path('logs/pid.log'),
         'log_file' => storage_path('logs/log.log'),
+        'stdout_file' => storage_path('logs/stdout.log'),
 
         //SocketIO的端口
         'socket_io_port' => 7000,

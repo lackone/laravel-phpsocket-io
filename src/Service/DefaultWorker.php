@@ -62,7 +62,7 @@ class DefaultWorker
     {
     }
 
-    public function onWorkerStop($connection)
+    public function onWorkerStop($worker)
     {
     }
 

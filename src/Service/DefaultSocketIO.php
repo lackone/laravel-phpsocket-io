@@ -29,9 +29,11 @@ class DefaultSocketIO
 
         $pid_file = $this->config('pid_file');
         $log_file = $this->config('log_file');
+        $stdout_file = $this->config('stdout_file');
 
         $pid_file && Worker::$pidFile = $pid_file;
         $log_file && Worker::$logFile = $log_file;
+        $stdout_file && Worker::$stdoutFile = $stdout_file;
 
         $this->global['io'] = $this->io;
 
